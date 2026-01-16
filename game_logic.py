@@ -15,8 +15,8 @@ def get_user_input():
     validates user_input
     :return user_input
     """
-    user_input = input("\nGuess a letter: ").lower()
     while True:
+        user_input = input("\nGuess a letter: ").lower()
         if len(user_input) == 1 and user_input.isalpha():
             return user_input
         else:
@@ -90,14 +90,14 @@ def play_game():
         printed_word = find_word_state(printed_word, index_list, user_char)
 
         print(f"Word: {printed_word}")
-        if mistakes == 3:
-            print(f"Game over! The word was {secret_word}")
+        if mistakes == 7:
+            print(f"Game over! 😵\nThe word was {secret_word}")
             break
         if printed_word.replace(" ", "") == secret_word:
             print("\nYou win! 🎉 \nThe snowman ist save now!\nThank you!")
             break
     while True:
-        user_repeat = input("Do you wanna play again? (Y/N): ")
+        user_repeat = input("\nDo you wanna play again? (Y/N): ")
         if user_repeat.lower() == "y":
             play_game()
         elif user_repeat.lower() == "n":
