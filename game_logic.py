@@ -1,5 +1,5 @@
 import random
-from snowman_stages import STAGES
+from ascii_art import STAGES
 
 # List of secret words
 WORDS = ["python", "git", "github", "snowman", "meltdown"]
@@ -56,7 +56,7 @@ def play_game():
             print(f"Game over! The word was {secret_word}")
             break
         if printed_word.replace(" ", "") == secret_word:
-            print("\nYou win! 🎉 \nThats the right word!")
+            print("\nYou win! 🎉 \nThe snowman ist save now!\n Thank you!")
             break
 
 
