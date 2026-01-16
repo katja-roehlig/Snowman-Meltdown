@@ -10,7 +10,7 @@ def get_random_word():
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
-def get_user_input():
+def get_user_input(used_letters):
     """
     validates user_input
     :return user_input
@@ -18,7 +18,10 @@ def get_user_input():
     while True:
         user_input = input("\nGuess a letter: ").lower()
         if len(user_input) == 1 and user_input.isalpha():
-            return user_input
+            if user_input in used_letters:
+                print("You have used this letter already!\nTake another one!")
+            else:
+                return user_input
         else:
             print("That was not a valid input!")
 
@@ -81,15 +84,18 @@ def play_game():
     secret_word = get_random_word()
     printed_word = prepare_game(secret_word)
     mistakes = 0
+    used_letters = set()
     while True:
-        user_char = get_user_input()
+        user_char = get_user_input(used_letters)
+        used_letters.add(user_char)
         index_list = find_occurences(secret_word, user_char)
         if not index_list:
             mistakes += 1
         display_game_state(mistakes)
         printed_word = find_word_state(printed_word, index_list, user_char)
-
         print(f"Word: {printed_word}")
+        print("\nletters already used: ", end="")
+        print(*used_letters, sep=", ")
         if mistakes == 7:
             print(f"Game over! 😵\nThe word was {secret_word}")
             break
