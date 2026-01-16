@@ -94,7 +94,13 @@ def play_game():
             print(f"Game over! The word was {secret_word}")
             break
         if printed_word.replace(" ", "") == secret_word:
-            print("\nYou win! 🎉 \nThe snowman ist save now!\n Thank you!")
+            print("\nYou win! 🎉 \nThe snowman ist save now!\nThank you!")
+            break
+    while True:
+        user_repeat = input("Do you wanna play again? (Y/N): ")
+        if user_repeat.lower() == "y":
+            play_game()
+        elif user_repeat.lower() == "n":
             break
 
 
