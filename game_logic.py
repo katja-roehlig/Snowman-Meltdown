@@ -2,7 +2,32 @@ import random
 from ascii_art import STAGES
 
 # List of secret words
-WORDS = ["python", "git", "github", "snowman", "meltdown"]
+WORDS = [
+    "python",
+    "git",
+    "github",
+    "snowman",
+    "meltdown",
+    "sunshine",
+    "happiness",
+    "ocean",
+    "computer",
+    "wonderful",
+    "developer",
+    "database",
+    "software",
+    "algorithm",
+    "mountain",
+    "starlight",
+    "rainbow",
+    "adventure",
+    "friendship",
+    "creativity",
+    "laughter",
+    "galaxy",
+    "syntax",
+    "skyline",
+]
 
 
 def get_random_word():
@@ -33,7 +58,6 @@ def prepare_game(secret_word):
     :return printed_word
     """
     print("Welcome to Snowman Meltdown!")
-    print("Secret word selected: " + secret_word)
     print(STAGES[0])
     length_secret_word = len(secret_word)
     printed_word = "_ " * length_secret_word
@@ -100,7 +124,7 @@ def play_game():
             print(f"Game over! 😵\nThe word was {secret_word}")
             break
         if printed_word.replace(" ", "") == secret_word:
-            print("\nYou win! 🎉 \nThe snowman ist save now!\nThank you!")
+            print("\nYou win! 🎉 \nThe snowman is save now!\nThank you!")
             break
     while True:
         user_repeat = input("\nDo you wanna play again? (Y/N): ")
