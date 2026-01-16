@@ -10,12 +10,24 @@ def get_random_word():
     return WORDS[random.randint(0, len(WORDS) - 1)]
 
 
-def display_game_state(mistakes, secret_word, guessed_letters):
-    pass
+def display_game_state(mistakes):
+    print(STAGES[mistakes])
+
+
+def display_word_state(printed_word, index_list, user_char):
+    list_word = printed_word.split(" ")
+    if not index_list:
+        return printed_word
+    for index in index_list:
+        list_word[index] = user_char
+    printed_word = " ".join(list_word)
+    print(printed_word)
+
+
+display_word_state("_ _ _ _ _ _", [1, 3, 5], "a")
 
 
 def find_occurences(secret_word, user_char):
-    # amount = secret_word.count(user_char)
     index_list = [i for i, char in enumerate(secret_word) if char == user_char]
     return index_list
 
